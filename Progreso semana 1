@@ -1,0 +1,68 @@
+
+import pygame
+pygame.init()
+
+c_base = (0,0,0) #negro
+c_rectangulo = (169, 169, 169)  # gris
+c_texto = (255, 255, 255) # blanco
+Largo = 1000  #lagro y acnho de la venta
+Ancho = 700
+
+screen = pygame.display.set_mode((Largo, Ancho)) # define screen y ademas define el largo y anho de la ventana
+pygame.display.set_caption('Calculador de nomina') # literalmente solo nombra la ventaa xd\
+fuente = pygame.font.SysFont(None, 40) #fuente para e texto creo que es arial segun reddit no lo es pero no onfio en esos locos]
+
+
+def texto_id():
+    
+    rect_x = 100 #posicion x del rectangulo
+    rect_y = 100 #posicion y del rectangulo
+    rect_ancho = 300 #tamano del rectangulo
+    rect_alto = 50 #ancho del rectangulo
+
+    pygame.draw.rect(screen, c_rectangulo, (rect_x, rect_y, rect_ancho, rect_alto)) #literalmente solo dibuje
+    
+    texto = fuente.render("Id del Empleado", True, c_texto) #que texto quiero que salga en el recatangulo
+
+    screen.blit(texto, (rect_x + 50, rect_y +10)) #margenes del texto
+
+def texto_horas():
+    
+    rect_x = 100 
+    rect_y = 200 
+    rect_ancho = 300 
+    rect_alto = 50 #
+
+    pygame.draw.rect(screen, c_rectangulo, (rect_x, rect_y, rect_ancho, rect_alto)) 
+    
+    texto = fuente.render("horas trabajdas " , True, c_texto) 
+
+    screen.blit(texto, (rect_x + 40, rect_y +10)) 
+
+def texto_extas():
+    
+    rect_x = 100 
+    rect_y = 300 
+    rect_ancho = 300 
+    rect_alto = 50 #
+
+    pygame.draw.rect(screen, c_rectangulo, (rect_x, rect_y, rect_ancho, rect_alto)) 
+    
+    texto = fuente.render("horas extras " , True, c_texto) 
+
+    screen.blit(texto, (rect_x + 70, rect_y +10))
+
+def main():
+    running = True # para que no se cierre la ventana
+    while running:
+        screen.fill(c_base) #darle un color a la ventana
+        texto_id()
+        texto_horas()
+        texto_extas()
+        dibujar_input_rects()
+        pygame.display.flip() #no se ccierre la ventana
+        
+    pygame.quit() #cerrar la ventana
+
+if __name__ == "__main__": #correr el codigo NO TOCAR (no se como funciona)
+    main()
